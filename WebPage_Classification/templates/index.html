@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  {% load static %}
+    <link rel="stylesheet" href="{% static "WebPage_Prediction_Django_ML_Project\WebPage_Classification\static\cyber.jpg" %}">
+
+  <title>Home page</title>
+
+  <script src="https://kit.fontawesome.com/47101d2035.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <style>
+
+ body  {
+  background: url('{% static "cyber.jpg" %}');
+  height: 100%;
+  background-position: inherit;
+  background-repeat: no-repeat;
+  background-size: cover;
+} 
+
+.center {
+      margin-left:300px;
+      
+      
+      position: absolute;
+      text-align: center;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: rgb(183 185 187);
+      border: 1px solid #000000;
+      border-radius: 15px;
+    }
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #070a0c;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+
+.btn-primary {
+    color: #fff;
+    background-color: #0e6f1d;
+    border-color: #3d8619;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+  </style>
+</head>
+
+
+<body>
+<div class="center">
+
+  <h4 style=" color: #0e326d; font-weight: 700; padding-top:7px;">
+    <i class="fas fa-user-secret" style="color: #245a28;"></i> Web Page Analysis
+  </h4>
+
+  <p style="color:rgb(51, 51, 83); font-weight: 700; padding-left: 4px;
+    padding-right: 4px">
+    Is a page with your given characteristics malicious or benign?
+  </p>
+
+  <form action="result">
+    {% csrf_token %}
+
+    <div class="form-group">
+      <input class="form-control" placeholder="URL length" required type="text" name="URL_length">
+    </div>
+
+
+    <div class="form-group">
+      <input class="form-control" placeholder="Geolocation" required type="text" name="Geolocation">
+    </div>
+
+
+    <div class="form-group">
+      <input class="form-control" placeholder="top level domain" required type="text" name="top_level_domain">
+    </div>
+
+
+    <div class="form-group">
+      <input class="form-control" placeholder="Javascript length" required type="text" name="Javascript_length">
+    </div>
+
+
+    <div class="form-group">
+      <input class="form-control" placeholder="Javascript obfuscate length" type="text" required name="Javascript_obfuscate_length">
+    </div>
+
+
+    <div class="form-group">
+      <input class="form-control" placeholder="Who is" required type="text" name="Who_is">
+    </div>
+
+    <div class="form-group">
+      <input class="form-control" placeholder="HTTPS" required type="text" name="HTTPS">
+    </div>
+
+
+
+
+
+    <input class="btn btn-primary btn-lg btn-block" type="submit" value='Predict'>
+
+  </form>
+  </div>
+</body>
+
+</html>

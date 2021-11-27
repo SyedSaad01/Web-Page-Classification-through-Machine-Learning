@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  {% load static %}
+    <link rel="stylesheet" href="{% static "WebPage_Prediction_Django_ML_Project\WebPage_Classification\static\malicious.jpg" %}">
+    <link rel="stylesheet" href="{% static "WebPage_Prediction_Django_ML_Project\WebPage_Classification\static\benign.jpg" %}">
+  <title>Result</title>
+
+  <script src="https://kit.fontawesome.com/47101d2035.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <style>
+    .center {
+      position: absolute;
+      text-align: center;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: rgb(230, 239, 245);
+    }
+
+  .malicious  {
+  background: url('{% static "malicious.jpg" %}');
+  height: 100%;
+  background-position: inherit;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+  .benign  {
+  background: url('{% static "benign.jpg" %}');
+  height: 100%;
+  background-position: inherit;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+  </style>
+</head>
+
+{% if result == 'benign' %}
+  <body class="benign">
+  </div class="center">
+  <h1 style="color: black; font-weight: 900; margin-left: 30px; margin-top: 30px;">
+  <i class="fas fa-lock" style="color: green;"></i> Web Page is <span style="color:green;">Benign!</span>
+   </div>
+  </body>
+  {% endif %}
+  
+
+{% if result == 'malicious' %}
+  <body class="malicious">
+  </div class="center">
+  <h1 style="color: white; font-weight: 900; margin-left: 30px; margin-top: 30px;">
+  <i class="fas fa-theater-masks" style="color: red;" ></i> Web Page is <span style="color:red;">Malicious!</span>
+   </div>
+</body>
+{% endif %}
+  
+
+</html>
